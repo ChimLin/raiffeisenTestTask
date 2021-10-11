@@ -3,7 +3,6 @@ package com.ruslan.raiffeisen.controller;
 import com.ruslan.raiffeisen.entity.SocksEntity;
 import com.ruslan.raiffeisen.exception.NotEnoghParametersOrIncorrectInput;
 import com.ruslan.raiffeisen.exception.QuantityLessZero;
-import com.ruslan.raiffeisen.repository.SocksRepository;
 import com.ruslan.raiffeisen.service.SocksService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,7 +27,7 @@ public class StorekeeperController {
         }catch (NotEnoghParametersOrIncorrectInput e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }catch (Exception e){
-            return ResponseEntity.badRequest().body("роизошла ошибка, не зависящая от вызывающей стороны");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
 
@@ -40,7 +39,7 @@ public class StorekeeperController {
         }catch (NotEnoghParametersOrIncorrectInput | QuantityLessZero e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }catch (Exception e){
-            return ResponseEntity.badRequest().body("роизошла ошибка, не зависящая от вызывающей стороны");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
 
