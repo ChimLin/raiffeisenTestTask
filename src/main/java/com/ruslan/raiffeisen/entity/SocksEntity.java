@@ -3,7 +3,7 @@ package com.ruslan.raiffeisen.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Socks")
+@Table(name = "socks")
 public class SocksEntity {
 
     @Id
@@ -44,4 +44,6 @@ public class SocksEntity {
     public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
+
+
 }
